@@ -1,13 +1,110 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="stylesheet" src="css/styles.css">
-    <link href="stylesheet" src="bootstrap/css/bootstrap.min.css">
-    <title>Conferencias</title>
+    <title>Ciclo de Conferencias</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+    <header id="banner">
+</header>
+    <main class="container mt-5 mb-5 pb-4">
+        <h1 class="text-center mb-3">
+            Ciclo de Conferencias
+        </h1>
+
+        <p class="text-center mb-5">
+            Semana de Conferencias 2026
+        </p>
+        <div class="row g-4">
+            <div class="col-md-4">
+
+                <div class="card h-100 shadow">
+
+                    <img src="images/netflix.jpg"
+                         class="card-img-top"
+                         alt="Conferencia Netflix">
+
+                    <div class="card-body">
+
+                        <h5 class="card-title">
+                            Netflix y Automatización</h5>
+                        <p class="card-text">   Día: Lunes</p>
+                        <p class="card-text">Lugar: Auditorio C1      </p>
+                        <p class="card-text">Horario: 17:00 - 18:00</p>
+                        <p class="card-text">Costo: $250</p>
+                        <button class="btn btn-primary w-100 btn-agregar"
+                                data-nombre="Netflix"
+                                data-precio="250">
+                            Agregar al carrito
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 shadow">
+                    <img src="images/aws.jpg"
+                         class="card-img-top"
+                         alt="Conferencia AWS">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            AWS
+                        </h5>
+                        <p class="card-text">
+                            Día: Martes
+                        </p>
+                        <p class="card-text">
+                            Lugar: Auditorio 9
+                        </p>
+                        <p class="card-text">
+                            Horario: 13:00 - 14:30
+                        </p>
+                        <p class="card-text">
+                            Costo: $150
+                        </p>
+                        <button class="btn btn-primary w-100 btn-agregar"
+                                data-nombre="AWS"
+                                data-precio="150">
+                            Agregar al carrito
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 shadow">
+                    <img src="images/bbva.png"
+                         class="card-img-top"
+                         alt="Conferencia BBVA">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            BBVA
+                        </h5>
+                        <p class="card-text">
+                            Día: Martes
+                        </p>
+                        <p class="card-text">    Lugar: Auditorio Dua</p>
+                        <p class="card-text">   Horario: 13:00 - 15:00</p>
+                        <p class="card-text">  Costo: $500</p>
+                        <button class="btn btn-primary w-100 btn-agregar"
+                                data-nombre="BBVA"
+                                data-precio="500">
+                            Agregar al carrito
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="bg-dark text-white text-center py-4">
+        <p class="mb-1">
+            BY: VIVAS PÉREZ DIEGO & BUSTOS SANCHEZ IAN
+        </p>
+    </footer>
     <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="js/app.js"></script>
+
 </body>
 </html>
