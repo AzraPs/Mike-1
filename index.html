@@ -11,6 +11,45 @@
 <body>
     <header id="banner">
 </header>
+<nav class="container mt-3 d-flex justify-content-end">
+    <div class="dropdown">
+        <button class="btn btn-dark dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false">
+            Tickets <span id="cantidad-tickets" class="badge bg-primary">0</span>
+        </button>
+
+        <div class="dropdown-menu dropdown-menu-end p-3"
+             style="width: 340px;"
+             id="menu-carrito">
+
+            <h5>Mis tickets</h5>
+
+            <div id="lista-carrito">
+                <p class="text-muted">No hay conferencias agregadas.</p>
+            </div>
+
+            <hr>
+
+            <p class="mb-3">
+                Precio a pagar: <span id="total-carrito">$0.00</span>
+            </p>
+
+            <button type="button" id="vaciar-carrito"
+                    class="btn btn-outline-danger btn-sm">
+                Vaciar carrito
+            </button>
+
+            <button type="button" id="btn-pagar"
+                    class="btn btn-success btn-sm"
+                    disabled>
+                Pagar
+            </button>
+        </div>
+    </div>
+</nav>
+
     <main class="container mt-5 mb-5 pb-4">
         <h1 class="text-center mb-3">
             Ciclo de Conferencias
@@ -103,6 +142,91 @@
             BY: VIVAS PÉREZ DIEGO & BUSTOS SANCHEZ IAN
         </p>
     </footer>
+
+<!-- Ventana modal de pago -->
+<div class="modal fade" id="modalPago" tabindex="-1"
+     aria-labelledby="tituloModalPago" aria-hidden="true">
+
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h5 class="modal-title" id="tituloModalPago">
+                    Selecciona tu tarjeta
+                </h5>
+
+                <button type="button" class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Cerrar"></button>
+            </div>
+
+            <div class="modal-body">
+
+                <p>Elige la tarjeta con la que deseas pagar:</p>
+
+                <div class="row g-3">
+
+                    <div class="col-4">
+                        <label class="opcion-tarjeta">
+                            <input type="radio" name="tarjeta"
+                                   value="Visa" class="form-check-input">
+                            <img src="images/visa.jpg"
+                                 class="img-fluid imagen-tarjeta"
+                                 alt="Visa">
+                            <p class="text-center mt-2 mb-0">Visa</p>
+                        </label>
+                    </div>
+
+                    <div class="col-4">
+                        <label class="opcion-tarjeta">
+                            <input type="radio" name="tarjeta"
+                                   value="Mastercard" class="form-check-input">
+                            <img src="images/master.png"
+                                 class="img-fluid imagen-tarjeta"
+                                 alt="Mastercard">
+                            <p class="text-center mt-2 mb-0">Mastercard</p>
+                        </label>
+                    </div>
+
+                    <div class="col-4">
+                        <label class="opcion-tarjeta">
+                            <input type="radio" name="tarjeta"
+                                   value="American Express" class="form-check-input">
+                            <img src="images/american.jpg"
+                                 class="img-fluid imagen-tarjeta"
+                                 alt="American Express">
+                            <p class="text-center mt-2 mb-0">American Express</p>
+                        </label>
+                    </div>
+
+                </div>
+
+                <hr>
+
+                <h5 class="text-center">
+                    Total a pagar: <span id="total-pago">$0.00</span>
+                </h5>
+
+                <p id="mensaje-pago" class="text-danger mt-2 mb-0"></p>
+
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary"
+                        data-bs-dismiss="modal">
+                    Cancelar
+                </button>
+
+                <button type="button" id="confirmar-pago"
+                        class="btn btn-success">
+                    Confirmar pago
+                </button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
     <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="js/app.js"></script>
 
