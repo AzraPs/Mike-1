@@ -1,231 +1,454 @@
+
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ciclo de Conferencias</title>
+    <title>Ciclo de Conferencias 2026</title>
+
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/styles.css">
 </head>
+
 <body>
-    <header id="banner">
-</header>
-<nav class="container mt-3 d-flex justify-content-end">
-    <div class="dropdown">
-        <button class="btn btn-dark dropdown-toggle"
+    <header id="banner" class="d-flex align-items-center">
+        <div class="container text-center text-white">
+            <h1>Ciclo de Conferencias</h1>
+            <p class="mb-1">Semana de Conferencias 2026</p>
+            <small>Aprende, conecta e innova</small>
+        </div>
+    </header>
+
+    <nav class="container mt-3 d-flex justify-content-end">
+        <div class="dropdown">
+
+            <button
+                class="btn btn-dark dropdown-toggle"
                 type="button"
                 data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
                 aria-expanded="false">
-            Tickets <span id="cantidad-tickets" class="badge bg-primary">0</span>
-        </button>
 
-        <div class="dropdown-menu dropdown-menu-end p-3"
-             style="width: 340px;"
-             id="menu-carrito">
-
-            <h5>Mis tickets</h5>
-
-            <div id="lista-carrito">
-                <p class="text-muted">No hay conferencias agregadas.</p>
-            </div>
-
-            <hr>
-
-            <p class="mb-3">
-                Precio a pagar: <span id="total-carrito">$0.00</span>
-            </p>
-
-            <button type="button" id="vaciar-carrito"
-                    class="btn btn-outline-danger btn-sm">
-                Vaciar carrito
+                Tickets
+                <span id="cantidad-tickets" class="badge bg-primary">0</span>
             </button>
 
-            <button type="button" id="btn-pagar"
-                    class="btn btn-success btn-sm"
-                    disabled>
-                Pagar
-            </button>
-        </div>
-    </div>
-</nav>
+            <div
+                class="dropdown-menu dropdown-menu-end p-3 menu-carrito"
+                id="menu-carrito">
 
-    <main class="container mt-5 mb-5 pb-4">
-        <h1 class="text-center mb-3">
-            Ciclo de Conferencias
-        </h1>
+                <h5>Mis tickets</h5>
 
-        <p class="text-center mb-5">
-            Semana de Conferencias 2026
-        </p>
-        <div class="row g-4">
-            <div class="col-md-4">
-
-                <div class="card h-100 shadow">
-
-                    <img src="images/netflix.jpg"
-                         class="card-img-top"
-                         alt="Conferencia Netflix">
-
-                    <div class="card-body">
-
-                        <h5 class="card-title">
-                            Netflix y Automatización</h5>
-                        <p class="card-text">   Día: Lunes</p>
-                        <p class="card-text">Lugar: Auditorio C1      </p>
-                        <p class="card-text">Horario: 17:00 - 18:00</p>
-                        <p class="card-text">Costo: $250</p>
-                        <button class="btn btn-primary w-100 btn-agregar"
-                                data-nombre="Netflix"
-                                data-precio="250">
-                            Agregar al carrito
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card h-100 shadow">
-                    <img src="images/aws.jpg"
-                         class="card-img-top"
-                         alt="Conferencia AWS">
-                    <div class="card-body">
-                        <h5 class="card-title">
-                            AWS
-                        </h5>
-                        <p class="card-text">
-                            Día: Martes
-                        </p>
-                        <p class="card-text">
-                            Lugar: Auditorio 9
-                        </p>
-                        <p class="card-text">
-                            Horario: 13:00 - 14:30
-                        </p>
-                        <p class="card-text">
-                            Costo: $150
-                        </p>
-                        <button class="btn btn-primary w-100 btn-agregar"
-                                data-nombre="AWS"
-                                data-precio="150">
-                            Agregar al carrito
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card h-100 shadow">
-                    <img src="images/bbva.png"
-                         class="card-img-top"
-                         alt="Conferencia BBVA">
-                    <div class="card-body">
-                        <h5 class="card-title">
-                            BBVA
-                        </h5>
-                        <p class="card-text">
-                            Día: Martes
-                        </p>
-                        <p class="card-text">    Lugar: Auditorio Dua</p>
-                        <p class="card-text">   Horario: 13:00 - 15:00</p>
-                        <p class="card-text">  Costo: $500</p>
-                        <button class="btn btn-primary w-100 btn-agregar"
-                                data-nombre="BBVA"
-                                data-precio="500">
-                            Agregar al carrito
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </main>
-    <footer class="bg-dark text-white text-center py-4">
-        <p class="mb-1">
-            BY: VIVAS PÉREZ DIEGO & BUSTOS SANCHEZ IAN
-        </p>
-    </footer>
-
-<!-- Ventana modal de pago -->
-<div class="modal fade" id="modalPago" tabindex="-1"
-     aria-labelledby="tituloModalPago" aria-hidden="true">
-
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-
-            <div class="modal-header">
-                <h5 class="modal-title" id="tituloModalPago">
-                    Selecciona tu tarjeta
-                </h5>
-
-                <button type="button" class="btn-close"
-                        data-bs-dismiss="modal"
-                        aria-label="Cerrar"></button>
-            </div>
-
-            <div class="modal-body">
-
-                <p>Elige la tarjeta con la que deseas pagar:</p>
-
-                <div class="row g-3">
-
-                    <div class="col-4">
-                        <label class="opcion-tarjeta">
-                            <input type="radio" name="tarjeta"
-                                   value="Visa" class="form-check-input">
-                            <img src="images/visa.jpg"
-                                 class="img-fluid imagen-tarjeta"
-                                 alt="Visa">
-                            <p class="text-center mt-2 mb-0">Visa</p>
-                        </label>
-                    </div>
-
-                    <div class="col-4">
-                        <label class="opcion-tarjeta">
-                            <input type="radio" name="tarjeta"
-                                   value="Mastercard" class="form-check-input">
-                            <img src="images/master.png"
-                                 class="img-fluid imagen-tarjeta"
-                                 alt="Mastercard">
-                            <p class="text-center mt-2 mb-0">Mastercard</p>
-                        </label>
-                    </div>
-
-                    <div class="col-4">
-                        <label class="opcion-tarjeta">
-                            <input type="radio" name="tarjeta"
-                                   value="American Express" class="form-check-input">
-                            <img src="images/american.jpg"
-                                 class="img-fluid imagen-tarjeta"
-                                 alt="American Express">
-                            <p class="text-center mt-2 mb-0">American Express</p>
-                        </label>
-                    </div>
-
+                <div id="lista-carrito">
+                    <p class="text-muted">
+                        No hay conferencias agregadas.
+                    </p>
                 </div>
 
                 <hr>
 
-                <h5 class="text-center">
-                    Total a pagar: <span id="total-pago">$0.00</span>
-                </h5>
+                <p class="fw-bold">
+                    Precio a pagar:
+                    <span id="total-carrito">$0.00</span>
+                </p>
 
-                <p id="mensaje-pago" class="text-danger mt-2 mb-0"></p>
+                <div class="d-flex gap-2">
+                    <button
+                        type="button"
+                        id="vaciar-carrito"
+                        class="btn btn-outline-danger btn-sm">
+                        Vaciar
+                    </button>
+
+                    <button
+                        type="button"
+                        id="btn-pagar"
+                        class="btn btn-success btn-sm"
+                        disabled>
+                        Pagar
+                    </button>
+                </div>
 
             </div>
+        </div>
+    </nav>
 
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary"
-                        data-bs-dismiss="modal">
-                    Cancelar
-                </button>
+    <main class="container mt-4 mb-5 pb-4">
 
-                <button type="button" id="confirmar-pago"
-                        class="btn btn-success">
-                    Confirmar pago
-                </button>
+        <h2 class="text-center mb-2">
+            Conferencias disponibles
+        </h2>
+
+        <p class="text-center text-muted mb-4">
+            Elige las conferencias a las que deseas asistir.
+        </p>
+
+        <div class="row justify-content-center mb-4">
+            <div class="col-md-7 col-lg-6">
+
+                <label for="buscador" class="form-label">
+                    Buscar conferencia
+                </label>
+
+                <input
+                    type="search"
+                    id="buscador"
+                    class="form-control"
+                    placeholder="Buscar Netflix, AWS, BBVA..."
+                    autocomplete="off">
+
+            </div>
+        </div>
+
+        <div
+            id="mensaje-sin-resultados"
+            class="alert alert-warning text-center d-none">
+
+            No se encontraron conferencias con ese nombre.
+        </div>
+
+        <div class="row g-4" id="catalogo-conferencias">
+
+            <div
+                class="col-md-4 tarjeta-conferencia"
+                data-busqueda="netflix automatizacion tecnología lunes auditorio c1">
+
+                <div class="card h-100 shadow-sm">
+
+                    <img
+                        src="images/netflix.jpg"
+                        class="card-img-top"
+                        alt="Conferencia Netflix y Automatización">
+
+                    <div class="card-body d-flex flex-column">
+
+                        <h3 class="card-title h5">
+                            Netflix y Automatización
+                        </h3>
+
+                        <p class="card-text mb-1">
+                            <strong>Día:</strong> Lunes
+                        </p>
+
+                        <p class="card-text mb-1">
+                            <strong>Lugar:</strong> Auditorio C1
+                        </p>
+
+                        <p class="card-text mb-1">
+                            <strong>Horario:</strong> 17:00 - 18:00
+                        </p>
+
+                        <p class="card-text">
+                            <strong>Costo:</strong> $250.00
+                        </p>
+
+                        <button
+                            class="btn btn-primary w-100 mt-auto btn-agregar"
+                            data-nombre="Netflix y Automatización"
+                            data-precio="250">
+
+                            Agregar al carrito
+                        </button>
+
+                    </div>
+                </div>
+            </div>
+
+            <div
+                class="col-md-4 tarjeta-conferencia"
+                data-busqueda="aws nube tecnología martes auditorio 9">
+
+                <div class="card h-100 shadow-sm">
+
+                    <img
+                        src="images/aws.jpg"
+                        class="card-img-top"
+                        alt="Conferencia AWS">
+
+                    <div class="card-body d-flex flex-column">
+
+                        <h3 class="card-title h5">AWS</h3>
+
+                        <p class="card-text mb-1">
+                            <strong>Día:</strong> Martes
+                        </p>
+
+                        <p class="card-text mb-1">
+                            <strong>Lugar:</strong> Auditorio 9
+                        </p>
+
+                        <p class="card-text mb-1">
+                            <strong>Horario:</strong> 13:00 - 14:30
+                        </p>
+
+                        <p class="card-text">
+                            <strong>Costo:</strong> $150.00
+                        </p>
+
+                        <button
+                            class="btn btn-primary w-100 mt-auto btn-agregar"
+                            data-nombre="AWS"
+                            data-precio="150">
+
+                            Agregar al carrito
+                        </button>
+
+                    </div>
+                </div>
+            </div>
+
+            <div
+                class="col-md-4 tarjeta-conferencia"
+                data-busqueda="bbva finanzas tecnología martes auditorio dua">
+
+                <div class="card h-100 shadow-sm">
+
+                    <img
+                        src="images/bbva.png"
+                        class="card-img-top"
+                        alt="Conferencia BBVA">
+
+                    <div class="card-body d-flex flex-column">
+
+                        <h3 class="card-title h5">BBVA</h3>
+
+                        <p class="card-text mb-1">
+                            <strong>Día:</strong> Martes
+                        </p>
+
+                        <p class="card-text mb-1">
+                            <strong>Lugar:</strong> Auditorio Dua
+                        </p>
+
+                        <p class="card-text mb-1">
+                            <strong>Horario:</strong> 13:00 - 15:00
+                        </p>
+
+                        <p class="card-text">
+                            <strong>Costo:</strong> $500.00
+                        </p>
+
+                        <button
+                            class="btn btn-primary w-100 mt-auto btn-agregar"
+                            data-nombre="BBVA"
+                            data-precio="500">
+
+                            Agregar al carrito
+                        </button>
+
+                    </div>
+                </div>
             </div>
 
         </div>
+    </main>
+
+    <footer class="bg-dark text-white text-center py-4">
+
+        <p class="mb-1">
+            Equipo:
+            <strong>VIVAS PÉREZ DIEGO &amp; BUSTOS SÁNCHEZ IAN</strong>
+        </p>
+
+        <p class="mb-0">
+            Número de equipo:
+            <strong>4</strong>
+        </p>
+
+    </footer>
+
+    <div
+        class="modal fade"
+        id="modalPago"
+        tabindex="-1"
+        aria-labelledby="tituloModalPago"
+        aria-hidden="true">
+
+        <div class="modal-dialog modal-dialog-centered">
+
+            <div class="modal-content">
+
+                <div class="modal-header">
+
+                    <h2 class="modal-title fs-5" id="tituloModalPago">
+                        Selecciona tu tarjeta
+                    </h2>
+
+                    <button
+                        type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Cerrar">
+                    </button>
+
+                </div>
+
+                <div class="modal-body">
+
+                    <p>
+                        Elige el método de pago:
+                    </p>
+
+                    <div class="row g-3">
+
+                        <!-- VISA -->
+                        <div class="col-4">
+
+                            <label class="opcion-tarjeta">
+
+                                <input
+                                    type="radio"
+                                    name="tarjeta"
+                                    value="Visa"
+                                    class="form-check-input">
+
+                                <img
+                                    src="images/visa.jpg"
+                                    class="img-fluid imagen-tarjeta"
+                                    alt="Visa">
+
+                                <span>Visa</span>
+
+                            </label>
+
+                        </div>
+
+                        <!-- MASTERCARD -->
+                        <div class="col-4">
+
+                            <label class="opcion-tarjeta">
+
+                                <input
+                                    type="radio"
+                                    name="tarjeta"
+                                    value="Mastercard"
+                                    class="form-check-input">
+
+                                <img
+                                    src="images/master.png"
+                                    class="img-fluid imagen-tarjeta"
+                                    alt="Mastercard">
+
+                                <span>Mastercard</span>
+
+                            </label>
+
+                        </div>
+
+                        <!-- AMERICAN EXPRESS -->
+                        <div class="col-4">
+
+                            <label class="opcion-tarjeta">
+
+                                <input
+                                    type="radio"
+                                    name="tarjeta"
+                                    value="American Express"
+                                    class="form-check-input">
+
+                                <img
+                                    src="images/american.jpg"
+                                    class="img-fluid imagen-tarjeta"
+                                    alt="American Express">
+
+                                <span>American Express</span>
+
+                            </label>
+
+                        </div>
+
+                    </div>
+
+                    <hr>
+
+                    <h3 class="h5 text-center">
+                        Total a pagar:
+                        <span id="total-pago">$0.00</span>
+                    </h3>
+
+                    <p
+                        id="mensaje-pago"
+                        class="text-danger mt-2 mb-0"
+                        role="alert">
+                    </p>
+
+                </div>
+
+                <div class="modal-footer">
+
+                    <button
+                        type="button"
+                        class="btn btn-secondary"
+                        data-bs-dismiss="modal">
+                        Cancelar
+                    </button>
+
+                    <button
+                        type="button"
+                        id="confirmar-pago"
+                        class="btn btn-success">
+                        Confirmar compra
+                    </button>
+
+                </div>
+
+            </div>
+        </div>
     </div>
-</div>
+
+    <!-- COMPROBANTE -->
+    <div
+        class="modal fade"
+        id="modalComprobante"
+        tabindex="-1"
+        aria-labelledby="tituloComprobante"
+        aria-hidden="true">
+
+        <div class="modal-dialog modal-dialog-centered">
+
+            <div class="modal-content">
+
+                <div class="modal-header">
+
+                    <h2 class="modal-title fs-5" id="tituloComprobante">
+                        ¡Compra exitosa!
+                    </h2>
+
+                    <button
+                        type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Cerrar">
+                    </button>
+
+                </div>
+
+                <div
+                    class="modal-body"
+                    id="contenido-comprobante">
+                </div>
+
+                <div class="modal-footer">
+
+                    <button
+                        type="button"
+                        id="imprimir-comprobante"
+                        class="btn btn-outline-primary">
+                        Imprimir comprobante
+                    </button>
+
+                    <button
+                        type="button"
+                        class="btn btn-success"
+                        data-bs-dismiss="modal">
+                        Aceptar
+                    </button>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
 
     <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="js/app.js"></script>

@@ -1,4 +1,6 @@
-html, body {
+
+html,
+body {
     min-height: 100%;
     margin: 0;
 }
@@ -7,28 +9,174 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    background-color: #f8f9fa;
 }
 
+/* Banner principal */
 #banner {
-    background-image: url("../images/banner.jpg");
-    height: 205px;
+    position: relative;
+    min-height: 370px;
+    background-image:
+        linear-gradient(
+            rgba(0, 0, 0, 0.52),
+            rgba(0, 0, 0, 0.52)
+        ),
+        url("../images/banner2.jpeg");
     background-size: cover;
     background-position: center;
     flex-shrink: 0;
 }
 
+#banner h1 {
+    font-weight: 800;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.75);
+}
+
+#banner p {
+    font-size: 1.25rem;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.75);
+}
+
+#banner small {
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.75);
+}
+
+/* Contenido principal */
 main {
     flex: 1;
 }
 
+/* Tarjetas de conferencias */
+.card {
+    border: 0;
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow:
+        0 0.5rem 1.25rem rgba(0, 0, 0, 0.13) !important;
+}
+
 .card-img-top {
+    width: 100%;
     height: 190px;
     object-fit: cover;
 }
 
+.precio-conferencia {
+    font-size: 1.05rem;
+    margin-top: 0.5rem;
+}
+
+/* Menú desplegable del carrito */
+.menu-carrito {
+    width: min(360px, calc(100vw - 2rem));
+    max-height: 70vh;
+    overflow-y: auto;
+}
+
+.producto-carrito {
+    border-bottom: 1px solid #dee2e6;
+    padding: 0.65rem 0;
+}
+
+.producto-carrito:last-child {
+    border-bottom: 0;
+}
+
+/* Botones para modificar cantidades */
+.controles-cantidad {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0.5rem 0;
+}
+
+.controles-cantidad .btn {
+    min-width: 32px;
+    padding: 0.15rem 0.45rem;
+}
+
+/* Opciones de tarjeta bancaria */
+.opcion-tarjeta {
+    height: 100%;
+    width: 100%;
+    padding: 0.5rem 0.25rem;
+    border: 1px solid #dee2e6;
+    border-radius: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.45rem;
+    cursor: pointer;
+    text-align: center;
+    font-size: 0.85rem;
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+.opcion-tarjeta:has(input:checked) {
+    border: 2px solid #0d6efd;
+    background-color: #eef5ff;
+}
+
+.imagen-tarjeta {
+    width: 100%;
+    height: 52px;
+    object-fit: contain;
+}
+
+/* Pie de página */
 footer {
     width: 100%;
     margin-top: auto;
     flex-shrink: 0;
 }
-```
+
+/* Diseño para celulares */
+@media (max-width: 576px) {
+    #banner {
+        min-height: 190px;
+    }
+
+    .card-img-top {
+        height: 210px;
+    }
+}
+
+/* Impresión del comprobante */
+@media print {
+    body * {
+        visibility: hidden;
+    }
+
+    #modalComprobante,
+    #modalComprobante * {
+        visibility: visible;
+    }
+
+    #modalComprobante {
+        position: absolute;
+        inset: 0;
+        display: block !important;
+        background: white;
+    }
+
+    #modalComprobante .modal-dialog {
+        max-width: 100%;
+        margin: 0;
+    }
+
+    #modalComprobante .modal-content {
+        border: 0;
+    }
+
+    #modalComprobante .modal-footer,
+    #modalComprobante .btn-close {
+        display: none !important;
+    }
+}
